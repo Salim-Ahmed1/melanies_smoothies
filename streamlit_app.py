@@ -18,12 +18,12 @@ try:
     session = cnx.session()
     my_dataframe = session.table("smoothies.public.fruit_options").select(col('Fruit_name'))
 
-# Create a multi-select widget
-ingredients_list = st.multiselect(
-    'Choose up to 5 ingredients:',
-      my_dataframe, #['Ingredients']  # Specify the column to use for options
-      max_selections=5
-)
+ # Create a multi-select widget
+    ingredients_list = st.multiselect(
+        'Choose up to 5 ingredients:',
+        fruit_list,
+        max_selections=5
+    )
 
 # Display the selected ingredients
 if ingredients_list:
