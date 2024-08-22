@@ -8,12 +8,12 @@ st.title(":cup_with_straw: Customize Your Smoothies:cup_with_straw:")
 st.write("Choose the fruits you want in your custome Streamlit!")
 
 # import streamlit as st
-
 name_on_order = st.text_input("Name on Smoothies: ")
 st.write("The name on your Smoothie will be: ", name_on_order)
 
 
 # Snowflake connection
+try:
     cnx = st.connection("Snowflake")
     session = cnx.session()
     my_dataframe = session.table("smoothies.public.fruit_options").select(col('Fruit_name'))
